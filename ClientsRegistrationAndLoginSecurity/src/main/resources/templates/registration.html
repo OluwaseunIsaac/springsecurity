@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+	<!-- Create Navigation Bar -->
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">Karl Estate Developer</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">home</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br>
+<br>
+<br>
+<br>
+	<!-- Create HTML registration form -->
+	<div class = "container">
+		<div class = "row">
+			<div class = "col-Lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<!-- success message -->
+				<div th:if ="${param.success}">
+					<div class = "alert alert-info">
+						You have successfully registered to our platform and app!!
+					</div>
+				</div>
+					<h1 class = "text-center ">Registration</h1>
+					<form th:action = "@{/registration}" method = "POST" th:object ="${user}">
+						<div class = "form-group">
+							<label class = "control-label" for ="firstName"> First Name </label>
+							<input id = "firstName" type = "text" class = "form-control" th:field = "*{firstName}" required autofocus = "autofocus"/>
+						</div>
+						
+						<div class = "form-group">
+							<label class = "control-label" for ="lastName"> Last Name </label>
+							<input id = "lastName" type = "text" class = "form-control" th:field = "*{lastName}" required autofocus = "autofocus"/>
+						</div>
+						
+						<div class = "form-group">
+							<label class = "control-label" for ="email"> Email </label>
+							<input id = "email" type = "text" class = "form-control" th:field = "*{email}" required autofocus = "autofocus"/>
+						</div>
+						
+						<div class = "form-group">
+							<label class = "control-label" for ="password"> Password </label>
+							<input id = "password" type = "password" class = "form-control" th:field = "*{password}" required autofocus 									= "autofocus"/>
+						</div>
+						
+						<div class = "form-group">
+							<button class = "btn btn-success" type = "submit"> Register </button>
+							<span> Already registered? <a href = "@{/login}"> Login here</a></span>
+						</div>
+					</form>
+					</div>
+				</div>
+			</div>
+</body>
+</html>
